@@ -788,8 +788,10 @@ Increasing version of package(s) in repository `{repository}` to `{version}`:
                 _my_run('git commit -m "{0}"'.format(title))
                 _my_run('git push {rosdistro_fork_url} {new_branch}'.format(**locals()), "Pushing changes to fork")
         # Open the pull request
-        return gh.create_pull_request(base_info['org'], base_info['repo'], base_info['branch'],
-                                      head_org, new_branch, title, body)
+        info("Not creating the pull request automatically. Please visit the URL above and paste the information above.")
+        return True
+        # return gh.create_pull_request(base_info['org'], base_info['repo'], base_info['branch'],
+                                      # head_org, new_branch, title, body)
 
 _original_version = None
 
